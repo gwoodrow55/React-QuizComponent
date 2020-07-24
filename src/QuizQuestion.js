@@ -9,7 +9,7 @@ class QuizQuestion extends Component {
       this.props.showNextQuestionHandler(); 
     }
   }
-  
+
   render() {
     return (
       <main>
@@ -18,10 +18,8 @@ class QuizQuestion extends Component {
         </section>
         <section className="buttons">
           <ul>
-            {this.props.quiz_question.answer_options.map(ans => {
-              const index = ans.index;
-              const answer_option = ans;
-              return <QuizQuestionButton clickHandler={this.handleClick.bind(this)} key={index} button_text={answer_option} />
+            {this.props.quiz_question.answer_options.map((answer_option, index) => {
+              return <QuizQuestionButton key={index} button_text={answer_option} clickHandler={this.handleClick.bind(this)} />
             })}
           </ul>
         </section>
